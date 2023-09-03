@@ -22,7 +22,7 @@ from .util import dec_to_hex, is_hex
 
 # TODO: Maybe run a short benchmark when running solve_work() for the first
 #       time?
-_cpu_flags = cpuinfo.get_cpu_info()["flags"]
+_cpu_flags = cpuinfo.get_cpu_info().get("flags") or []
 _cpu_flags_by_priority = ("avx", "sse4_1", "ssse3", "sse2", "neon", "ref")
 
 for cpu_flag in _cpu_flags_by_priority:
